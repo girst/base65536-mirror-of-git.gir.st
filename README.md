@@ -8,6 +8,7 @@ Reimplementation of [ferno][1]'s [`base65536`][2] in C for UNIXoid shells.
 
 ## Building
 To generate the binary, run `make`.    
+If you want long options (e.g. --decode), enable `-DLONG_OPT`. 
 To automatically run the included tests, run `make test`. (will rebuild)    
 You can copy the resulting `base65536` file to a directory in your `$PATH`.
 
