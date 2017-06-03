@@ -3,6 +3,7 @@
 Released under the GNU GPL v3. See LICENSE for details. */
 
 #define _XOPEN_SOURCE
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -56,6 +57,10 @@ int main (int argc, char** argv) {
 	} else if (optind < argc) {
 		if (strcmp (argv [optind], "-") != 0)
 			op.f = fopen (argv[optind], "rb");
+			if (op.f == NULL) {
+				fprintf (stderr, "Impossible to open the file %s: %s\n", argv[optind], strerror(errno));
+				return 1;
+			}
         }
 
 	if (op.d) {
