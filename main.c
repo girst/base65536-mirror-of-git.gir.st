@@ -58,7 +58,7 @@ int main (int argc, char** argv) {
 		if (strcmp (argv [optind], "-") != 0)
 			op.f = fopen (argv[optind], "rb");
 			if (op.f == NULL) {
-				fprintf (stderr, "Impossible to open the file %s: %s\n", argv[optind], strerror(errno));
+				fprintf (stderr, "%s: %s: %s\n", argv[0], argv[optind], strerror(errno));
 				return 1;
 			}
         }
