@@ -55,12 +55,13 @@ int main (int argc, char** argv) {
 		fprintf (stderr, "%s: extra operand '%s'. \n", argv[0], argv[argc-1]);
 		return 1;
 	} else if (optind < argc) {
-		if (strcmp (argv [optind], "-") != 0)
+		if (strcmp (argv [optind], "-") != 0) {
 			op.f = fopen (argv[optind], "rb");
 			if (op.f == NULL) {
 				fprintf (stderr, "%s: %s: %s\n", argv[0], argv[optind], strerror(errno));
 				return 1;
 			}
+		}
         }
 
 	if (op.d) {
